@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doddipatla Ramesh Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0f172a;
+      color: white;
+    }
+
+    header {
+      background-color: #1e293b;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    #darkModeToggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      margin-left: 20px;
+      transition: transform 0.2s;
+    }
+
+    #darkModeToggle:hover {
+      transform: scale(1.2);
+    }
+
+    .section {
+      padding: 100px 30px 50px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .home {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 60px;
+    }
+
+    .text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .text h3 {
+      font-size: 20px;
+      color: #aaa;
+    }
+
+    .text h1 {
+      font-size: 40px;
+      margin: 10px 0;
+    }
+
+    .text h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      color: #00ffff;
+    }
+
+    .text p {
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .social i {
+      margin-right: 15px;
+      font-size: 20px;
+      color: #00ffff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .social i:hover {
+      transform: scale(1.2);
+    }
+
+    .btn {
+      display: inline-block;
+      background: #00ffff;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+
+    .image {
+      flex: 1;
+      min-width: 250px;
+      text-align: center;
+    }
+
+    .hexagon {
+      width: 250px;
+      height: 290px;
+      background: #00ffff;
+      clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      box-shadow: 0 0 25px #00ffff;
+    }
+
+    .hexagon img {
+      width: 90%;
+      border-radius: 10px;
+    }
+
+    /* About */
+    .about h2, .skills h2, .projects h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #00ffff;
+    }
+
+    .contact h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 28px;
+      color: #00ffff;
+    }
+
+    .about p {
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    /* Skills */
+    .skills ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    .skills li {
+      background: #1e293b;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-left: 5px solid #00ffff;
+    }
+
+    /* Projects */
+    .projects .project {
+      background: #1e293b;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+
+    /* Contact */
+    .contact form {
+      max-width: 500px;
+      margin: 20px auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact input, .contact textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      background: #334155;
+      border: none;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .contact button, button {
+      background: #00ffff;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    b {
+      color: #00ffff;
+    }
+
+    /* Light Mode */
+    .light-mode {
+      background-color: #f9f9f9;
+      color: #111;
+    }
+
+    .light-mode header {
+      background-color: #e2e8f0;
+    }
+
+    .light-mode nav a {
+      color: #111;
+    }
+
+    .light-mode nav a:hover {
+      color: #0077ff;
+    }
+
+    .light-mode .section {
+      color: #111;
+    }
+
+    .light-mode .skills li,
+    .light-mode .projects .project,
+    .light-mode .contact input,
+    .light-mode .contact textarea {
+      background: #ddd;
+      color: #000;
+    }
+
+    .light-mode .btn,
+    .light-mode .contact button {
+      background: #0077ff;
+      color: white;
+    }
+
+    .light-mode .highlight,
+    .light-mode b {
+      color: #0077ff;
+    }
+
+    @media (max-width: 768px) {
+      .home {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin: 5px 10px 0 0;
+        display: inline-block;
+      }
+    }
+   footer {
+  background-color: #1e293b;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: 50px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+} 
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Doddipatla Ramesh</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="darkModeToggle" title="Toggle Dark Mode">
+      <i class="fas fa-moon"></i>
+    </button>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="section home">
+    <div class="text">
+      <h3>Hello, It's Me</h3>
+      <h1>Doddipatla Ramesh</h1>
+      <h2>And I'm a <b><span id="typing-text"></span></b></h2>
+      <p>currently pursuing my B.Tech in Computer Science And Engineering (CSE)</p>
+      <div class="social">
+        <a href="https://www.instagram.com/ramesh90149" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/doddipatla-ramesh-6384742b5" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.facebook.com/share/1AP8dTuAqU/" target="_blank"><i class="fab fa-facebook"></i></a>
+      </div>
+      <a href="resume.pdf" class="btn" download>Download CV</a>
+    </div>
+    <div class="image">
+      <div class="hexagon">
+        <img src="my image.jpeg" alt="profile">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section about">
+    <h2>About Me</h2>
+    <p>Hi, I'm <b>Ramesh</b>, a passionate <b>web developer</b> currently pursuing my B.Tech in 
+      Computer Science And Engineering (CSE) as a third-year student.I specialize in creating 
+intuitive and interactive websites with a focus on functionality and user experience.With a keen 
+interest in combining creativity and logic, I design and develop projects that are both visually
+appealing and technically robust. My current portfolio highlights my skills in front-end development,
+responsive design, and implementing innovative features like interactive galleries and dark mode.
+I'm dedicated to continuous learning and staying updated with the latest web development 
+trends. My role as a web developer reflects my drive to build solutions that merge aesthetics with 
+seamless performance. Feel free to explore my projects and reach out for collaboration!</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML, CSS, JavaScript</li>
+      <li>C, C++</li>
+      <li>SQL</li>
+      <li>Java, Python</li>
+    </ul>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Style Recipe Website</h3>
+      <p>Website with featured recipes and categories.</p><br>
+      <a href="major project.html" target="_blank"><button>View Project</button></a>
+    </div>
+    <div class="project">
+      <h3>Hotel Website</h3>
+      <p>A responsive, single-page hotel website for "Ramesh Hotel" with navigation, hero section,
+         gallery, room listings, booking form,embedded Google Map, and form validation using HTML, CSS,
+          and JavaScript.</p><br>
+      <a href="hotels.html" target="_blank"><button>View Project</button></a>
+    </div>
+    <div class="project">
+      <h3>QR code Generate Website</h3>
+      <p>oiejfudlmpcocaejwkll;gp</p><br>
+      <a href="QR Code.html" target="_blank"><button>View Project</button></a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Enter Name" required>
+      <input type="email" placeholder="Enter Email" required>
+      <textarea rows="5" placeholder="Enter Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- Typing and Dark Mode Script -->
+  <script>
+    const text = ["Web Developer"];
+    let i = 0, j = 0;
+    let currentText = "", isDeleting = false;
+
+    function type() {
+      if (i < text.length) {
+        if (!isDeleting && j <= text[i].length) {
+          currentText = text[i].substring(0, j++);
+        }
+        if (isDeleting && j >= 0) {
+          currentText = text[i].substring(0, j--);
+        }
+        document.getElementById("typing-text").textContent = currentText;
+        if (j === text[i].length) {
+          isDeleting = true;
+          setTimeout(type, 1000);
+        } else if (j === 0) {
+          isDeleting = false;
+          i = (i + 1) % text.length;
+          setTimeout(type, 500);
+        } else {
+          setTimeout(type, isDeleting ? 50 : 100);
+        }
+      }
+    }
+
+    window.onload = type;
+
+    const toggleBtn = document.getElementById("darkModeToggle");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      const icon = toggleBtn.querySelector("i");
+      icon.classList.toggle("fa-sun");
+      icon.classList.toggle("fa-moon");
+    });
+  </script>
+<footer>
+  <div class="footer-container">
+    <p>&copy; 2025 Doddipatla Ramesh. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
